@@ -11,7 +11,7 @@ function encode(){
     var bob = document.getElementById("box")
     bob.appendChild(x)
     var button = document.createElement("button");
-    button.style("background-color", "red")
+    button.style.backgroundColor = "red";
     button.innerHTML = "Encode!";
     var bob_2 = document.getElementById("e/dbu")
     bob_2.appendChild(button)
