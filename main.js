@@ -45,7 +45,7 @@ function encode(){
       ff.value = code_16;
       bob_2.appendChild(ff)
       var buuton_2 = document.createElement("button");
-      buuton_2.innerHTML = '<img src="pic.jpeg" />Copy';
+      buuton_2.innerHTML = '<img src="pic.jpeg" />';
       bob.appendChild(buuton_2)
       buuton_2.addEventListener("click", function(){
         copy()
