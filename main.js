@@ -24,23 +24,14 @@ function encode(){
       var s = document.getElementById("encode").value;
       var array = s.split('')
       var re_array = array.reverse()
-      var rturn = re_array.join()
-      var code = rturn.replaceAll('a', 'h')
-      var code_2 = code.replaceAll(' ', '$')
-      var code_3 = code_2.replaceAll('w', 'u')
-      var code_4 = code_3.replaceAll('!', '%')
-      var code_5 = code_4.replaceAll(',', '')
-      var code_6 = code_5.replaceAll('I', 'a')
-      var code_7 = code_6.replaceAll('A', 'z')
-      var code_8 = code_7.replaceAll('k', 'g')
-      var code_10 = code_8.replaceAll('l', 'j')
-      var code_11 = code_10.replaceAll('q', ']')
-      var code_12 = code_11.replaceAll('.', '[')
-      var code_13 = code_12.replaceAll('l', 'f')
-      var code_14 = code_13.replaceAll('o', 'K')
-      var code_15 = code_14.replaceAll('W', 'c')
-      var code_16 = code_15.replaceAll('e', 'F')
-      var ff = document.createElement("INPUT")
+      var d = re_array.join()
+      var n = d.replaceAll(',', '')
+      for (let i =0; i < n.length; i++){
+        let char = n[i]
+
+        var sssss = char
+      }
+      var ff = document.createElement("INPUT") 
       ff.setAttribute("id", "text")
       ff.value = code_16;
       bob_2.appendChild(ff)
@@ -85,6 +76,11 @@ function decode(){
       var s = document.getElementById("decode").value;
       var array = s.split('')
       var re_array = array.reverse()
+      for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        // Replace each letter here
+        newStr += char.toUpperCase(); // For examp
+      }
       var rturn = re_array.join()
       var code = rturn.replaceAll('h', 'a')
       var code_2 = code.replaceAll('$', ' ')
