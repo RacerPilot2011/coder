@@ -26,11 +26,23 @@ function encode(){
       var re_array = array.reverse()
       var d = re_array.join()
       var n = d.replaceAll(',', '')
-      for (let i =0; i < n.length; i++){
-        let char = n[i]
-
-        var sssss = char
-      }
+      async function main() {
+        let pyodide = await loadPyodide();
+        result = pyodide.runPython(`
+           import js
+           from js import n
+           import string
+           chars = " "+string.punctuation + string.digits + string.ascii_letters
+           chars = list(chars)
+           key = ['j', 'i', 'k', '(', 'n', 'V', '5', '"', '+', 'x', '=', 'l', 't', 'b', 'N', '7', '*', 'Q', 'm', 'M', 'a', 'T', '<', 'D', '3', 'r', '!', 'A', '4', '.', 'L', 'q', "'", 'h', 's', ':', '&', 'I', '-', 'X', ';', '8', '#', 'W', '/', 'z', '9', 'S', 'U', 'c', 'f', 'O', 'u', ')', '$', 'G', 'v', 'K', '}', 'e', 'B', '^', 'o', '?', '~', '6', 'w', '0', '_', '[', 'Y', 'J', '>', '{', 'H', 'Z', 'F', '2', 'g', 'R', 'y', '|', 'E', '%', ',', '@', 'd', 'p', 'C', 'P', ' ']
+           b = ""
+           for letter in n:
+              index = chars.index(letter)
+              b += key[index]
+           js.code_16 = b
+        `);
+    }
+    main()
       var ff = document.createElement("INPUT") 
       ff.setAttribute("id", "text")
       ff.value = code_16;
