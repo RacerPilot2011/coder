@@ -15,17 +15,128 @@
         <p>Do you want to encode or decode</p>
         <button style="background-color: rgb(255,0,0);" onclick="encode()">Encode</button><button style="background-color:rgb(0,0,255)" onclick="decode()">Decode</button>
         <script type="text/javascript">
-        function s(){
-            s = document.getElementById("test").value;
+            var i = 0
+var qw = 0
+var s = ''
+var start = document.createTextNode(s)
+var code_16 = ""
+function encode(){
+  if (i == 0){
+    var x = document.createElement("INPUT");
+    x.setAttribute("id", "encode");
+    sa = "You have chosen to encode a message."
+    document.getElementById("dddd").innerHTML = sa;
+    var bob = document.getElementById("box")
+    bob.appendChild(x)
+    var button = document.createElement("button");
+    button.style.backgroundColor = "red";
+    button.innerHTML = "Encode!";
+    var bob_2 = document.getElementById("e/dbu")
+    bob_2.appendChild(button)
+    button.addEventListener("click", function(){
+              var s = document.getElementById("encode").value;
+      var array = s.split('')
+      var re_array = array.reverse()
+      var d = re_array.join()
+      var n = d.replaceAll(',', '')
+      var bob = document.getElementById("copy")
+      var bob_2 = document.getElementById("p1")
+      bob_2.appendChild(start)
+      bob.appendChild(start)
+
+     
+      var ff = document.createElement("INPUT") 
+      ff.setAttribute("id", "text")
+      ff.value = code_16;
+      bob_2.appendChild(ff)
+      var buuton_2 = document.createElement("button");
+      buuton_2.innerHTML = '<img src="pic.jpeg" />';
+      bob.appendChild(buuton_2)
+      buuton_2.addEventListener("click", function(){
+        copy()
+      })
+      function copy() {
+        // Get the text field
+        var copyText = document.getElementById("text");
+      
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+      
+         // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+      }
+    });
+}
+}
+function decode(){
+    if (i == 0){
+    var y = document.createElement("INPUT");
+    y.setAttribute("id", "decode");
+    sa = "You have chosen to decode a message."
+    document.getElementById("dddd").innerHTML = sa;
+    var bob = document.getElementById("box")
+    bob.appendChild(y)
+    var button = document.createElement("button");
+    button.innerHTML = "Decode!";
+    button.style.backgroundColor = "blue";
+    var bob_2 = document.getElementById("e/dbu")
+    bob_2.appendChild(button)
+    button.addEventListener("click", function(){
+      var bob = document.getElementById("copy")
+      var bob_2 = document.getElementById("p1")
+      bob_2.appendChild(start)
+      bob.appendChild(start)
+      var s = document.getElementById("decode").value;
+      var array = s.split('')
+      var re_array = array.reverse()
+      for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        // Replace each letter here
+        newStr += char.toUpperCase(); // For examp
+      }
+      var rturn = re_array.join()
+      var n = rturn.replaceAll(',', '')
           languagePluginLoader.then(function () {
-              x = pyodide.runPython(`
-                  import js  
-                  d = js.s
-                  print(d)
+              pyodide.runPython(`
+                  from js import n
+           import string
+           chars = " "+string.punctuation + string.digits + string.ascii_letters
+           chars = list(chars)
+           key = ['j', 'i', 'k', '(', 'n', 'V', '5', '"', '+', 'x', '=', 'l', 't', 'b', 'N', '7', '*', 'Q', 'm', 'M', 'a', 'T', '<', 'D', '3', 'r', '!', 'A', '4', '.', 'L', 'q', "'", 'h', 's', ':', '&', 'I', '-', 'X', ';', '8', '#', 'W', '/', 'z', '9', 'S', 'U', 'c', 'f', 'O', 'u', ')', '$', 'G', 'v', 'K', '}', 'e', 'B', '^', 'o', '?', '~', '6', 'w', '0', '_', '[', 'Y', 'J', '>', '{', 'H', 'Z', 'F', '2', 'g', 'R', 'y', '|', 'E', '%', ',', '@', 'd', 'p', 'C', 'P', ' ']
+           b = ""
+           for letter in n:
+              index = key.index(letter)
+              b += chars[index]
+           js.code_16 = b
               `);
-              console.log(x)
           });
-        }
+      var ff = document.createElement("INPUT")
+      ff.setAttribute("id","t")
+      ff.value = code_16
+      bob_2.appendChild(ff)
+      var buuton_2 = document.createElement("button");
+      buuton_2.innerHTML = "Copy";
+      bob.appendChild(buuton_2)
+      buuton_2.addEventListener("click", function(){
+        copy()
+      })
+      function copy() {
+        // Get the text field
+        var copyText = document.getElementById("t");
+      
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+      
+         // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+      }
+    });
+    i = 1;
+    }
+}
+       
     </script>
         <p id="dddd"></p>
         <div id="box"></div><div id="e/dbu"></div>
