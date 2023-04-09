@@ -2,8 +2,11 @@
 <html>
     <head>
         <title>Coder!</title>
-        <link rel="icon" type="image/x-icon" href="favicon.png">
-        <script src="main.js"></script>
+        <link rel="icon" type="image/x-icon" href="favicon.png"><script type="text/javascript">
+          // set the pyodide files URL (packages.json, pyodide.asm.data etc)
+          window.languagePluginUrl = 'https://cdn.jsdelivr.net/pyodide/v0.16.1/full/';
+      </script>
+      <script src="https://cdn.jsdelivr.net/pyodide/v0.16.1/full/pyodide.js"></script>
     </head>
     
     <body>
@@ -11,6 +14,19 @@
 
         <p>Do you want to encode or decode</p>
         <button style="background-color: rgb(255,0,0);" onclick="encode()">Encode</button><button style="background-color:rgb(0,0,255)" onclick="decode()">Decode</button>
+        <script type="text/javascript">
+        function s(){
+            s = document.getElementById("test").value;
+          languagePluginLoader.then(function () {
+              x = pyodide.runPython(`
+                  import js  
+                  d = js.s
+                  print(d)
+              `);
+              console.log(x)
+          });
+        }
+    </script>
         <p id="dddd"></p>
         <div id="box"></div><div id="e/dbu"></div>
         <p id="p1"></p>
