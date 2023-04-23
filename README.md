@@ -6,4 +6,4 @@ This can work on many devices
 This whole project started when my cosion showed me a program. He said he wanted to make the avalible on all devices without a sperate code editor.
 
 ## Notes:
-It may not Work properly
+Final release
