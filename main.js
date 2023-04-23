@@ -2,6 +2,10 @@ var i = 0
 var qw = 0
 var s = ''
 var start = document.createTextNode(s)
+var code_16 = ""
+var abc =  "!#$%&'()*+,-./:;<=>?@[^_`{|}~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var abc = abc.split("")
+var key = ['j', 'i', 'k', '(', 'n', 'V', '5', '"', '+', 'x', '=', 'l', 't', 'b', 'N', '7', '*', 'Q', 'm', 'M', 'a', 'T', '<', 'D', '3', 'r', '!', 'A', ' ', '.', 'L', 'q', "'", 'h', 's', ':', '&', 'I', '-', 'X', ';', '8', '#', 'W', '/', 'z', '9', 'S', 'U', 'c', 'f', 'O', 'u', ')', '$', 'G', 'v', 'K', '}', 'e', 'B', '^', 'o', '?', '~', '6', 'w', '0', '_', '[', 'Y', 'J', '>', '{', 'H', 'Z', 'F', '2', 'g', 'R', 'y', '|', 'E', '%', ',', '@', 'd', 'p', 'C', 'P', '4']
 function encode(){
   if (i == 0){
     var x = document.createElement("INPUT");
@@ -16,36 +20,24 @@ function encode(){
     var bob_2 = document.getElementById("e/dbu")
     bob_2.appendChild(button)
     button.addEventListener("click", function(){
-
+              var s = document.getElementById("encode").value;
+      var array = s.split('')
+      var re_array = array.reverse()
+      var map = re_array 
+      const replacedArr = re_array.map((letter) => {
+        const index = map.indexOf(letter);
+        return index !== -1 ? key[index] : letter;
+      });
+      var d = replacedArr.join()
+      var g = d.replaceAll(',', '')
       var bob = document.getElementById("copy")
       var bob_2 = document.getElementById("p1")
       bob_2.appendChild(start)
       bob.appendChild(start)
-      var s = document.getElementById("encode").value;
-      var array = s.split('')
-      var re_array = array.reverse()
-      var d = re_array.join()
-      var n = d.replaceAll(',', '')
-      async function main() {
-        let pyodide = await loadPyodide();
-        result = pyodide.runPython(`
-           import js
-           from js import n
-           import string
-           chars = " "+string.punctuation + string.digits + string.ascii_letters
-           chars = list(chars)
-           key = ['j', 'i', 'k', '(', 'n', 'V', '5', '"', '+', 'x', '=', 'l', 't', 'b', 'N', '7', '*', 'Q', 'm', 'M', 'a', 'T', '<', 'D', '3', 'r', '!', 'A', '4', '.', 'L', 'q', "'", 'h', 's', ':', '&', 'I', '-', 'X', ';', '8', '#', 'W', '/', 'z', '9', 'S', 'U', 'c', 'f', 'O', 'u', ')', '$', 'G', 'v', 'K', '}', 'e', 'B', '^', 'o', '?', '~', '6', 'w', '0', '_', '[', 'Y', 'J', '>', '{', 'H', 'Z', 'F', '2', 'g', 'R', 'y', '|', 'E', '%', ',', '@', 'd', 'p', 'C', 'P', ' ']
-           b = ""
-           for letter in n:
-              index = chars.index(letter)
-              b += key[index]
-           js.code_16 = b
-        `);
-    }
-    main()
+     
       var ff = document.createElement("INPUT") 
       ff.setAttribute("id", "text")
-      ff.value = code_16;
+      ff.value = g;
       bob_2.appendChild(ff)
       var buuton_2 = document.createElement("button");
       buuton_2.innerHTML = '<img src="pic.jpeg" />';
@@ -88,30 +80,19 @@ function decode(){
       var s = document.getElementById("decode").value;
       var array = s.split('')
       var re_array = array.reverse()
-      for (let i = 0; i < str.length; i++) {
-        let char = str[i];
-        // Replace each letter here
-        newStr += char.toUpperCase(); // For examp
-      }
-      var rturn = re_array.join()
-      var code = rturn.replaceAll('h', 'a')
-      var code_2 = code.replaceAll('$', ' ')
-      var code_3 = code_2.replaceAll('u', 'w')
-      var code_4 = code_3.replaceAll('%', '!')
-      var code_5 = code_4.replaceAll(',', '')
-      var code_6 = code_5.replaceAll('a', 'I')
-      var code_7 = code_6.replaceAll('z', 'A')
-      var code_8 = code_7.replaceAll('g', 'k')
-      var code_10 = code_8.replaceAll('j', 'l')
-      var code_11 = code_10.replaceAll(']', '1')
-      var code_12 = code_11.replaceAll('[', '.')
-      var code_13 = code_12.replaceAll('f', 'l')
-      var code_14 = code_13.replaceAll('K', 'o')
-      var code_15 = code_14.replaceAll('c', 'W')
-      var code_16 = code_15.replaceAll('F', 'e')
+
+      
+      var map = re_array 
+      const fda = re_array.map((letter) => {
+        const index = map.indexOf(letter);
+        return index !== -1 ? abc[index] : letter;
+      });
+      var rturn = fda.join()
+      var n = rturn.replaceAll(',', '')
+
       var ff = document.createElement("INPUT")
       ff.setAttribute("id","t")
-      ff.value = code_16
+      ff.value = n
       bob_2.appendChild(ff)
       var buuton_2 = document.createElement("button");
       buuton_2.innerHTML = "Copy";
@@ -134,3 +115,5 @@ function decode(){
     i = 1;
     }
 }
+
+
